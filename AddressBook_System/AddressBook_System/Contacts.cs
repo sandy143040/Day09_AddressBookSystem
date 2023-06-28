@@ -21,7 +21,7 @@ namespace AddressBook_System
         public void DisplayContactInfo()
         {
             Console.WriteLine("Contact Information:");
-            Console.WriteLine($"First Name: {firstName}");
+            Console.WriteLine($"First Name: " + firstName);
             Console.WriteLine($"Last Name: {lastName}");
             Console.WriteLine($"Address: {address}");
             Console.WriteLine($"City: {city}");
@@ -30,6 +30,10 @@ namespace AddressBook_System
             Console.WriteLine($"Phone Number: {phoneNumber}");
             Console.WriteLine($"Email: {email}");
             Console.WriteLine();
+        }
+        public void AddNewContact()
+        {
+
         }
     }
 }

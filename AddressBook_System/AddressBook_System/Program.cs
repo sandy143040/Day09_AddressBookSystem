@@ -15,55 +15,60 @@ namespace AddressBook_System
 
             while (true)
             {
-                Console.WriteLine("Enter contact information:");
-
-                Console.Write("First Name: ");
-                string firstName = Console.ReadLine();
-
-                Console.Write("Last Name: ");
-                string lastName = Console.ReadLine();
-
-                Console.Write("Address: ");
-                string address = Console.ReadLine();
-
-                Console.Write("City: ");
-                string city = Console.ReadLine();
-
-                Console.Write("State: ");
-                string state = Console.ReadLine();
-
-                Console.Write("ZIP: ");
-                string zip = Console.ReadLine();
-
-                Console.Write("Phone Number: ");
-                string phoneNumber = Console.ReadLine();
-
-                Console.Write("Email: ");
-                string email = Console.ReadLine();
-
-                Contacts contact = new Contacts()
+                Console.WriteLine("Enter the Number of contact list you want add in AddressBook");
+                int input = Convert.ToInt32(Console.ReadLine());
+                for (int index = 0; index < input; index++)
                 {
-                    firstName = firstName,
-                    lastName = lastName,
-                    address = address,
-                    city = city,
-                    state = state,
-                    zip = zip,
-                    phoneNumber = phoneNumber,
-                    email = email
-                };
+                    Console.WriteLine("Enter contact information:");
 
-                addressBook.Add(contact);
+                    Console.Write("First Name: ");
+                    string firstName = Console.ReadLine();
 
-                Console.WriteLine("Contact created successfully!");
-                Console.WriteLine("\n");
-                Console.WriteLine("Address Book Entries:");
-                foreach (Contacts contactList in addressBook)
-                {
-                    contactList.DisplayContactInfo();
+                    Console.Write("Last Name: ");
+                    string lastName = Console.ReadLine();
+
+                    Console.Write("Address: ");
+                    string address = Console.ReadLine();
+
+                    Console.Write("City: ");
+                    string city = Console.ReadLine();
+
+                    Console.Write("State: ");
+                    string state = Console.ReadLine();
+
+                    Console.Write("ZIP: ");
+                    string zip = Console.ReadLine();
+
+                    Console.Write("Phone Number: ");
+                    string phoneNumber = Console.ReadLine();
+
+                    Console.Write("Email: ");
+                    string email = Console.ReadLine();
+
+                    Contacts contact = new Contacts()
+                    {
+                        firstName = firstName,
+                        lastName = lastName,
+                        address = address,
+                        city = city,
+                        state = state,
+                        zip = zip,
+                        phoneNumber = phoneNumber,
+                        email = email
+                    };
+
+                    addressBook.Add(contact);
+
+                    Console.WriteLine("Contact created successfully!");
+                    Console.WriteLine("\n");
+                    Console.WriteLine("Address Book Entries:");
+                    foreach (Contacts contactList in addressBook)
+                    {
+                        contactList.DisplayContactInfo();
+                    }
                 }
-            }
-              
+                Console.ReadLine();
+            } 
         }
     }
 }
