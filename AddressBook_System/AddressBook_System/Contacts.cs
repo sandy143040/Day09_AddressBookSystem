@@ -31,9 +31,6 @@ namespace AddressBook_System
             Console.WriteLine($"Email: {email}");
             Console.WriteLine();
         }
-        public void AddNewContact()
-        {
-
-        }
+        
     }
 }
