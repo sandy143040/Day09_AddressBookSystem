@@ -13,77 +13,55 @@ namespace AddressBook_System
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book Program\n");
-            List<Contacts> addressBook = new List<Contacts>();
+            AddressBook addressBook = new AddressBook();
 
-            Console.WriteLine("Enter the Number of Contacts you want to add to the Address Book:");
-            int input = Convert.ToInt32(Console.ReadLine());
-
-            for (int index = 0; index < input; index++)
+            while (true)
             {
-                Contacts contact = new Contacts();
+                Console.WriteLine("Choose an option:");
+                Console.WriteLine("1. Add a new contact");
+                Console.WriteLine("2. Edit an existing contact");
+                Console.WriteLine("3. Delete a contact");
+                Console.WriteLine("4. Add multiple contacts");
+                Console.WriteLine("5. Display all contacts");
+                Console.WriteLine("6. Exit");
+                Console.Write("Enter your choice (1-6): ");
+                string choice = Console.ReadLine();
+                Console.WriteLine();
 
-                Console.WriteLine("Enter contact information:");
-                Console.Write("First Name: ");
-                contact.firstName = Console.ReadLine();
-
-                Console.Write("Last Name: ");
-                contact.lastName = Console.ReadLine();
-
-                Console.Write("Address: ");
-                contact.address = Console.ReadLine();
-
-                Console.Write("City: ");
-                contact.city = Console.ReadLine();
-
-                Console.Write("State: ");
-                contact.state = Console.ReadLine();
-
-                Console.Write("ZIP: ");
-                contact.zip = Console.ReadLine();
-
-                Console.Write("Phone Number: ");
-                contact.phoneNumber = Console.ReadLine();
-
-                Console.Write("Email: ");
-                contact.email = Console.ReadLine();
-
-                addressBook.Add(contact);
-
-                Console.WriteLine("Contact created successfully!");
-                Console.WriteLine("\n");
-            }
-
-            Console.WriteLine("Address Book Entries:");
-            foreach (Contacts contact in addressBook)
-            {
-                contact.DisplayContactInfo();
-            }
-
-            Console.WriteLine("Delete a contact by using the first name");
-            Console.WriteLine("Enter the first name: ");
-            string firstNameToDelete = Console.ReadLine();
-
-            bool contactDeleted = false;
-            for (int i = 0; i < addressBook.Count; i++)
-            {
-                if (addressBook[i].firstName == firstNameToDelete)
+                switch (choice)
                 {
-                    addressBook.RemoveAt(i);
-                    contactDeleted = true;
-                    break;
+                    case "1":
+                        addressBook.AddContact();
+                        break;
+                    case "2":
+                        Console.Write("Enter the first name of the contact to edit: ");
+                        string firstNameToEdit = Console.ReadLine();
+                        Console.Write("Enter the last name of the contact to edit: ");
+                        string lastNameToEdit = Console.ReadLine();
+                        addressBook.EditContact(firstNameToEdit, lastNameToEdit);
+                        break;
+                    case "3":
+                        Console.Write("Enter the first name of the contact to delete: ");
+                        string firstNameToDelete = Console.ReadLine();
+                        Console.Write("Enter the last name of the contact to delete: ");
+                        string lastNameToDelete = Console.ReadLine();
+                        addressBook.DeleteContact(firstNameToDelete, lastNameToDelete);
+                        break;
+                    case "4":
+                        addressBook.AddMultipleContacts();
+                        break;
+                    case "5":
+                        addressBook.DisplayAllContacts();
+                        break;
+                    case "6":
+                        Console.WriteLine("Exiting the program...");
+                        return;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        Console.WriteLine();
+                        break;
                 }
             }
-
-            if (contactDeleted)
-            {
-                Console.WriteLine("Contact deleted successfully!");
-            }
-            else
-            {
-                Console.WriteLine("Contact not found.");
-            }
-
-            Console.ReadLine();
         }
     }
 }

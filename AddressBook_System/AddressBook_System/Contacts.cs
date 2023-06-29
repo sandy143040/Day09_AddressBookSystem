@@ -18,18 +18,30 @@ namespace AddressBook_System
         public string phoneNumber { get; set; }
         public string email { get; set; }
 
+        public Contacts(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.zip = zip;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+        }
+
+
         public void DisplayContactInfo()
         {
-            Console.WriteLine("Contact Information:");
-            Console.WriteLine($"First Name: " + firstName);
-            Console.WriteLine($"Last Name: {lastName}");
+            Console.WriteLine("--------------------");
+            Console.WriteLine($"Name: {firstName} {lastName}");
             Console.WriteLine($"Address: {address}");
             Console.WriteLine($"City: {city}");
             Console.WriteLine($"State: {state}");
             Console.WriteLine($"ZIP: {zip}");
             Console.WriteLine($"Phone Number: {phoneNumber}");
             Console.WriteLine($"Email: {email}");
-            Console.WriteLine();
+            Console.WriteLine("--------------------");
         }
         
     }
